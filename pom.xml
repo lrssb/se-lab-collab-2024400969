@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 1. 项目基本信息 (保持和你之前的设置一致即可) -->
+    <groupId>com.example</groupId>
+    <artifactId>se-lab-tdd-2026</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>SE Lab TDD 2026</name>
+
+    <!-- 2. 属性配置 (适配 Java 24) -->
+    <properties>
+        <!-- 2026年主流配置：使用 Java 24 -->
+        <maven.compiler.source>24</maven.compiler.source>
+        <maven.compiler.target>24</maven.compiler.target>
+        <!-- 编码格式 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 假设使用 JUnit 5 的最新稳定版本 -->
+        <junit.version>5.10.0</junit.version>
+    </properties>
+
+    <!-- 3. 核心依赖 (关键部分：引入 JUnit 5) -->
+    <dependencies>
+        <!-- JUnit Jupiter (JUnit 5 的核心引擎) -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope> <!-- 仅在测试时生效 -->
+        </dependency>
+    </dependencies>
+
+    <!-- 4. 构建插件 (确保能跑测试) -->
+    <build>
+        <plugins>
+            <!-- 编译插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version> <!-- 兼容 Java 24 的插件版本 -->
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+
+            <!-- 测试运行插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.3.0</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
